@@ -531,7 +531,7 @@ function App() {
             
             <FadeInSection delay={0.2}>
               <form className="card" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value={accessKey}/>
+                <input type="hidden" name="access_key" value={process.env.REACT_APP_WEB3FORMS_ACCESS_KEY}/>
                 <input type="hidden" name="subject" value="Новая заявка с сайта портфолио" />
                 
                 <div className="mb-4">
