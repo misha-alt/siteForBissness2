@@ -25,11 +25,13 @@ import {
   Settings
 } from 'lucide-react';
 import profilePhoto from './assets/images/foto.png';
+import logo from './assets/images/6374b1a785a3b578541946-1536x768.jpeg'
 
 import Header from './components/Header';
 import MouseParallax from './components/MouseParallax';
 import TiltCard from './components/TiltCard';
 import FadeInSection from './components/FadeInSection';
+import ChatWidget from './components/ChatWidget';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,7 +98,7 @@ function App() {
       features: [
         'REST API для мобильных и веб-приложений',
         'Микросервисная архитектура',
-        'Интеграция с базами данных (PostgreSQL, MySQL)',
+        'Интеграция с базами данных hibernate (PostgreSQL, MySQL)',
         'Настройка авторизации (JWT, OAuth2)'
       ],
       example: 'Разработал API для CRM-системы с обработкой 10K+ запросов в день',
@@ -105,16 +107,16 @@ function App() {
       buttonText: 'Заказать разработку'
     },
     {
-      title: 'Интеграция Python в бизнес',
+      title: 'Интеграция искуственного интеллекта в бизнес',
       subtitle: 'Автоматизирую рутину и внедряю AI-решения',
       description: 'Помогаю бизнесу работать эффективнее с помощью Python',
       features: [
-        'Парсинг данных (Scrapy, BeautifulSoup)',
+        'Внедрение искусственного интеллекта в различные сферы бизнеса',
         'Автоматизация отчетов (Pandas, Excel)',
         'Интеграция с API (Telegram, Google Sheets)',
-        'Простые ML-модели (Scikit-learn, NLP)'
+        'Парсинг данных (Scrapy, BeautifulSoup)'
       ],
-      example: 'Написал скрипт для автоматической выгрузки данных из 1С, сократив время работы с 4 часов до 10 минут',
+      example: 'Создал ботов помощников с искуственным интеллектом обученных на бизнес данных заказчиков',
       icon: <Bot size={32} />,
       color: 'bg-blue-500',
       buttonText: 'Узнать подробности'
@@ -192,7 +194,7 @@ function App() {
       <section 
         ref={heroRef}
         id="hero" 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
       >
         <MouseParallax>
           <div className="absolute inset-0 z-0">
@@ -212,7 +214,12 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            🤖 Внедряем искуственный интеллект <br/>
+            
+             <img
+    src={logo}
+    
+    className="inline-block h-[1em] align-middle mr-2"
+  /> Внедряем искуственный интеллект <br/>
             <span className="gradient-text"> в ваш бизнес: автоматизация, умные сервисы и digital-решения под ключ</span>
           </motion.h1>
           
@@ -247,7 +254,7 @@ function App() {
           </motion.div>
           
           <motion.div 
-            className="hero-cta"
+            className="hero-cta mb-32"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -285,7 +292,7 @@ function App() {
               <div className="animate-on-scroll">
                 <h3 className="text-2xl font-bold mb-4">Fullstack-разработчик с фокусом на результат</h3>
                 <p className="text-gray-700 mb-6">
-                  Специализируюсь на создании надежных backend-решений на Java Spring, автоматизации бизнес-процессов с помощью Python и разработке эффективных лендингов. Мой подход — это сочетание технической экспертизы с пониманием бизнес-задач.
+                  Специализируюсь на создании надежных backend-решений на Java Spring, автоматизации бизнес-процессов с помощью искуственного интеллекта на Python и разработке эффективных лендингов. Мой подход — это сочетание технической экспертизы с пониманием бизнес-задач.
                 </p>
                 <p className="text-gray-700 mb-6">
                   За годы работы помог десяткам клиентов оптимизировать процессы, создать масштабируемые системы и увеличить конверсию сайтов. Всегда стремлюсь к созданию решений, которые не просто работают, но и приносят реальную пользу бизнесу.
@@ -503,7 +510,7 @@ function App() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Linkedin className="text-primary-500" size={20} />
-                    <a href="#" className="text-gray-700 hover:text-primary-600 transition-colors duration-300">
+                    <a href="https://www.linkedin.com/in/mikhail-yatskevich-708973350/" className="text-gray-700 hover:text-primary-600 transition-colors duration-300">
                       LinkedIn профиль
                     </a>
                   </div>
@@ -531,7 +538,8 @@ function App() {
             
             <FadeInSection delay={0.2}>
               <form className="card" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value={process.env.REACT_APP_WEB3FORMS_ACCESS_KEY}/>
+                {/* <input type="hidden" name="access_key" value={process.env.REACT_APP_WEB3FORMS_ACCESS_KEY}/> */}
+                <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_ACCESS_KEY}/>
                 <input type="hidden" name="subject" value="Новая заявка с сайта портфолио" />
                 
                 <div className="mb-4">
@@ -578,6 +586,8 @@ function App() {
           </div>
         </div>
       </section>
+      {/* вставка чата */}
+      <ChatWidget/>  
       
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">

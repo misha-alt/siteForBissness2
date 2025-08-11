@@ -34,9 +34,12 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <a 
             href="#" 
-            className={`text-2xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+            className={`text-lg sm:text-2xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}
           >
-            <span className="gradient-text">Михаил Яцкевич</span>
+            <span className="gradient-text">
+              <span className="hidden sm:inline">Михаил Яцкевич</span>
+              <span className="sm:hidden">М. Яцкевич</span>
+            </span>
           </a>
           
           {/* Desktop Navigation */}
@@ -92,9 +95,12 @@ const Header: React.FC = () => {
                     transition={{ delay: index * 0.1 }}
                   >
                     <a 
-                      href={link.href} 
-                      className="block font-medium text-gray-700 hover:text-primary-500 transition-colors duration-300"
-                      onClick={() => setMobileMenuOpen(false)}
+                     href={link.href} 
+                     className="block font-medium text-gray-700 hover:text-primary-500 transition-colors duration-300"
+                     onClick={(e) => {
+                       // Небольшая задержка перед закрытием меню для корректной прокрутки
+                       setTimeout(() => setMobileMenuOpen(false), 800);
+                     }}
                     >
                       {link.name}
                     </a>
