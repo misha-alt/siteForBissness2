@@ -101,7 +101,7 @@ const ChatWidget: React.FC = () => {
     setInput('');
 
     try {
-      const res = await fetch('https://testdeploysailsmanai2-production.up.railway.app/chat', {
+      const res = await fetch('https://testdeploysalesmanai2-production.up.railway.app/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId.current, message: text }),
