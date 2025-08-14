@@ -117,25 +117,24 @@ const ChatWidget: React.FC = () => {
 
   return (
     <>
-      {/* Плавающая кнопка с аватаркой */}
+      {/* Плавающая кнопка с аватаркой (без изменений) */}
       <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
-  {!isOpen && (
-    <button
-    onClick={() => setIsOpen(true)}
-    className="flex items-center gap-2 md:gap-4 bg-white p-2 md:p-4 pl-3 md:pl-5 rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors"
-  >
-    <span className="text-sm md:text-base font-medium text-gray-700">Помощь</span>
-    <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-blue-500">
-      <img 
-        src={profileWomenPhoto}
-        alt="Менеджер"
-        className="w-full h-full object-cover"
-      />
-    </div>
-  </button>
-  )}
+        {!isOpen && (
+          <button
+            onClick={() => setIsOpen(true)}
+            className="flex items-center gap-2 md:gap-4 bg-white p-2 md:p-4 pl-3 md:pl-5 rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-sm md:text-base font-medium text-gray-700">Помощь</span>
+            <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-blue-500">
+              <img 
+                src={profileWomenPhoto}
+                alt="Менеджер"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </button>
+        )}
 
-        {/* Если чат открыт - показываем только аватарку для закрытия */}
         {isOpen && (
           <button
             onClick={() => setIsOpen(false)}
@@ -150,14 +149,19 @@ const ChatWidget: React.FC = () => {
         )}
       </div>
 
-      {/* Окно чата с шапкой-аватаркой */}
+      {/* Окно чата с исправлениями */}
       {isOpen && (
-  <div 
-    ref={chatRef} // ← Вот это добавляем!
-    className="fixed bottom-24 right-5 w-96 h-96 bg-white shadow-xl rounded-lg flex flex-col z-40 border border-gray-300 overflow-hidden"
-  >
-
-          {/* Шапка чата с фото и именем */}
+        <div 
+          ref={chatRef}
+          className="fixed bottom-24 right-5 w-full max-w-[calc(100vw-40px)] md:w-96 md:max-w-none h-96 bg-white shadow-xl rounded-lg flex flex-col z-40 border border-gray-300 overflow-hidden"
+          style={{
+            right: '20px',
+            left: 'auto',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          {/* Шапка чата с фото и именем (без изменений) */}
           <div className="bg-blue-600 text-white p-3 flex items-center gap-3">
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white">
               <img 
@@ -172,13 +176,13 @@ const ChatWidget: React.FC = () => {
             </div>
           </div>
           
-          {/* Область сообщений */}
+          {/* Область сообщений (без изменений) */}
           <div
             ref={chatMessagesRef}
             className="flex-1 overflow-y-auto p-3 bg-gray-50"
           />
           
-          {/* Поле ввода */}
+          {/* Поле ввода (без изменений) */}
           <div className="border-t border-gray-200 p-2 bg-white">
             <div className="flex items-center">
               <input
